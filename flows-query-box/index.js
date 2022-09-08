@@ -17,6 +17,7 @@
 
 const axios = require('axios');
 
+// Change these three configurations to what you need
 const baseUrl = "https://test.firewalla.net";
 const token = "__PERSONAL_ACCESS_TOKEN_FROM_MSP__";
 const boxName = "Firewalla Gold";
