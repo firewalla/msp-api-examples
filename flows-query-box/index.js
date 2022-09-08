@@ -18,13 +18,13 @@
 const axios = require('axios');
 
 // Change these three configurations to what you need
-const baseUrl = "https://test.firewalla.net";
+const mspDomain = "mydomain.firewalla.net";
 const token = "__PERSONAL_ACCESS_TOKEN_FROM_MSP__";
-const boxName = "Firewalla Gold";
+const boxName = "Firewalla Gold"; // Box Name
 
 axios({
     method: 'post',
-    url: `${baseUrl}/v1/flows/query`,
+    url: `https://${mspDomain}/v1/flows/query`,
     headers: {
         Authorization: `Token ${token}`,
         "Content-Type": "application/json"
