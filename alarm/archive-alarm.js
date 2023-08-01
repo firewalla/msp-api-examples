@@ -13,30 +13,21 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// This is an example on how to query last 24 hours flows on a given box
+// This is an example on how to archive alarm
 
 const axios = require('axios');
 
 // Change these three configurations to what you need
-const mspDomain = "mydomain.firewalla.net";
-const token = "__PERSONAL_ACCESS_TOKEN_FROM_MSP__";
-const boxName = "Firewalla Gold"; // Box Name
+const mspDomain = process.env.msp_domain || "mydomain.firewalla.net";
+const token = process.env.token || "__PERSONAL_ACCESS_TOKEN_FROM_MSP__";
+const gid = process.env.gid || "box_gid"; // box gid
+const alarmId = process.env.alarmId || "alarm_id"; // alarm id
 
 axios({
     method: 'post',
-    url: `https://${mspDomain}/v1/flows/query`,
+    url: `https://${mspDomain}/v1/alarm/archive/${gid}/${alarmId}`,
     headers: {
-        Authorization: `Token ${token}`,
-        "Content-Type": "application/json"
-    },
-    data: {
-        start: new Date() / 1000 - 24 * 3600,
-        end: new Date() / 1000,
-        filters: [{
-            key: "box",
-            values: [boxName]
-        }],
-        limit: 1000
+        Authorization: `Token ${token}`
     }
 }).then((res) => {
     let data = res.data;
