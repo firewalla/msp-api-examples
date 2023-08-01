@@ -1,78 +1,34 @@
-# msp-api-examples
+<h1 align="center">
+Firewalla MSP API Docs Samples
+</h1>
 
-## prepare
-``` bash
-yarn
-```
+This repository contains sample code illustrating the Firewalla MSP API. Each sample is a self-contained API that explains one topic in [Firewalla MSP API Docs](https://firewalla.github.io/quick_start/). You can read, play with or adapt from these samples to create your own application.
 
-## examples
+## Prerequisites
 
-### get all boxes of msp
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] node box/list-all-boxes.js
-```
+- Purchase one MSP plan from [Firewalla MSP](https://firewalla.net/)
+- Create your personal access token [Quick Start](https://firewalla.github.io/quick_start/)
+- Have [node](https://nodejs.org/en/) and [npm](https://nodejs.org/en/) installed on your system to run the examples.
 
-### get all devices of msp
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] node device/list-all-devices.js
-```
 
-### get all devices on a given box
+## Usage
 
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] gid=[box_gid] node device/list-box-devices.js
-```
+- `git clone https://github.com/firewalla/msp-api-examples`
+- `cd <any-sample-folder>`
+- `npm install` in the terminal, then `msp_domain=[msp_domain] token=[token] node ./hourly-flow-by-box/index.js` to run the sample
 
-### get device detail
+## Samples
 
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] gid=[box_gid] mac=[device_mac_address] node device/get-device-detail.js
-```
+<!-- SAMPLES_BEGIN -->
+| Sample | Guide on Firewalla MSP API Docse Website |
+| ------ | ----- | 
+| [Get hourly flows by box](https://github.com/firewalla/msp-api-examples/blob/main/hourly-flow-by-box/index.js) | [Flow](https://firewalla.github.io/api-reference/flow/) | 
+<!-- LSP_SAMPLES_END -->
 
-### get top 50 active alarms for each msp box
+## Sending Feedback
 
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] node alarm/list-alarms.js
-```
+We are always open to your feedback, email to help@firewalla.com..
 
-### get top 50 active alarms on a given box
+## License
 
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] gid=[box_gid] node alarm/list-box-alarms.js
-```
-
-### get alarm detail
-
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] gid=[box_gid] alarmId=2687 node alarm/get-alarm-detail.js
-```
-
-### archive alarm
-
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] gid=[box_gid] alarmId=2687 node alarm/archive-alarm.js
-```
-
-### delete alarm
-
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] gid=[box_gid] alarmId=2687 node alarm/delete-alarm.js
-```
-
-### query flows on a given timerange
-
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] start=1662804679.14 end=1662804687.142 node flow/flows-query-timerange.js
-```
-
-### query flows on a given box
-
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] boxName=navy node flow/flows-query-box.js
-```
-
-### query flows with multiple condition
-
-```
-msp_domain=[msp_domain] token=[personal_access_token_from_msp] boxName=navy destination=icloud start=1662718559.346 end=1662804959.346 node flow/flows-query-advance.js
-```
+Copyright 2019-2023 Firewalla Inc.
