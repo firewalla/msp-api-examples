@@ -27,8 +27,8 @@ This repository contains sample code illustrating the Firewalla MSP API. Each sa
 
 ## Sending Feedback
 
-We are always open to your feedback, email to help@firewalla.com..
+We are always open to your feedback, email to help@firewalla.com.
 
 ## License
 
-Copyright 2019-2023 Firewalla Inc.
+Copyright 2016-2023 Firewalla Inc.
