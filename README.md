@@ -1,6 +1,6 @@
 # Firewalla Managed Security Portal (MSP) API Examples
 
-This repository contains code examples that demonstrate how to use [Firewalla MSP API](https://docs.firewalla.net/) to interact with [Firewalla MSP](https://firewalla.net/).
+This repository contains code examples that demonstrate how to use [Firewalla MSP API](https://docs.firewalla.net/) to interact with [Firewalla MSP](https://firewalla.net/). You can read, play with or adapt from these examples to create your own appliance.
 
 ## Prerequisites
 
@@ -19,6 +19,12 @@ npm install
 domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index.js
 
 ```
+
+## Samples
+
+| Sample | Firewalla MSP API Document |
+| ------ | ----- | 
+| [Flow Pagination](https://github.com/firewalla/msp-api-examples/tree/main/flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | 
 
 ## Disclaimer
 

@@ -24,6 +24,10 @@ const begin = process.env.begin || Date.now() / 1000 - 24 * 3600;
 let end = process.env.end || Date.now() / 1000;
 
 
+// Related API Document
+// https://docs.firewalla.net/api-reference/flow/
+
+
 async function main() {
 
   const httpClient = axios.create({
