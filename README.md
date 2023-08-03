@@ -1,34 +1,37 @@
-<h1 align="center">
-Firewalla MSP API Docs Samples
-</h1>
+# Firewalla Managed Security Portal (MSP) API Examples
 
-This repository contains sample code illustrating the Firewalla MSP API. Each sample is a self-contained API that explains one topic in [Firewalla MSP API Docs](https://docs.firewalla.net). You can read, play with or adapt from these samples to create your own application.
+This repository contains code examples that demonstrate how to use [Firewalla MSP API](https://docs.firewalla.net/) to interact with [Firewalla MSP](https://firewalla.net/). You can read, play with or adapt from these examples to create your own appliance.
 
 ## Prerequisites
 
-- Purchase one MSP plan from [Firewalla MSP](https://firewalla.net/)
-- Create your personal access token [Quick Start](https://docs.firewalla.net/quick_start/)
-- Have [node](https://nodejs.org/en/) and [npm](https://nodejs.org/en/) installed on your system to run the examples.
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/package/npm), [pnpm](https://pnpm.io/installation), or the package manager you prefer
+- A Firewalla MSP account and a valid [plan](https://firewalla.net/plans)
+- Access token from your MSP account, check the [document](https://docs.firewalla.net/quick_start/) for details
 
+## Quick Start
 
-## Usage
+You could use either file or environment variable to setup your MSP domain and credential, check each example for details
 
-- `git clone https://github.com/firewalla/msp-api-examples`
-- `cd <any-sample-folder>`
-- `npm install` in the terminal, then `msp_domain=[msp_domain] token=[token] node ./hourly-flow-by-box/index.js` to run the sample
+```bash
+git clone https://github.com/firewalla/msp-api-examples.git
+npm install
+domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index.js
+
+```
 
 ## Samples
 
-<!-- SAMPLES_BEGIN -->
-| Sample | Guide on Firewalla MSP API Docse Website |
+| Sample | Firewalla MSP API Document |
 | ------ | ----- | 
-| [Get hourly flows by box](https://github.com/firewalla/msp-api-examples/blob/main/hourly-flow-by-box/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | 
-<!-- LSP_SAMPLES_END -->
+| [Flow Pagination](https://github.com/firewalla/msp-api-examples/tree/main/flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | 
 
-## Sending Feedback
+## Disclaimer
 
-We are always open to your feedback, email to help@firewalla.com.
+As Firewalla MSP API operates directly on your data without prompt. Be very careful writing your own appliance. Dry runs are recommended before any write request.
 
-## License
+# Contributing
 
-Copyright 2016-2023 Firewalla Inc.
+Pull requests are welcome. Lastest development happens on `main` branch
+
+You might also want to check our user community on [firewalla.com](https://help.firewalla.com/hc/en-us/community/topics) and [reddit](https://www.reddit.com/r/firewalla/)

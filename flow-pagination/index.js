@@ -13,18 +13,19 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// This is an example on how to query last 24 hours flows on a given box
-
 import axios from 'axios';
 import fs from 'fs';
 
-// Change these three configurations to what you need
-const msp_domain = process.env.msp_domain || "qici-dev2.dd.firewalla.net";
+// Create .token and .domain file or use environment variables to setup your MSP domain and credential
+const msp_domain = process.env.domain || fs.readFileSync('./.domain').toString();
 const token = process.env.token || fs.readFileSync('./.token').toString();
+// begin and end default to the latest hour
 const begin = process.env.begin || Date.now() / 1000 - 24 * 3600;
 let end = process.env.end || Date.now() / 1000;
 
-console.log(begin, end)
+
+// Related API Document
+// https://docs.firewalla.net/api-reference/flow/
 
 
 async function main() {
@@ -37,6 +38,7 @@ async function main() {
 
   const bucket = {}
 
+  // pagination, keep fetching until next returned as null
   do {
     const resp = await httpClient({
       method: 'get',
@@ -57,18 +59,17 @@ async function main() {
       }
       bucket[flow.device.id].flows.push(flow)
     }
-
   } while(end)
 
-
+  // only prints the flow count here
   for (const deviceId in bucket) {
     const device = bucket[deviceId]
-    console.log(`${device.name}: ${device.flows.length} flows`)
+    console.log(`${device.name}: ${device.flows.length} flows fetched`)
   }
 }
 
 
 main().catch(err => {
-  console.error('Failed to get hourly flows', err);
+  console.error('Failed to get flows', err);
   process.exit(1)
 })
