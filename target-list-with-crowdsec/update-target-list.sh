@@ -17,7 +17,7 @@ json_payload+=$(echo "$banned_ips" | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/","/g
 json_payload+=']
 }'
 
-http_code=$(curl -s -w %{http_code} --request PATCH \
+http_code=$(curl -s -w %{http_code} -o /dev/null --request PATCH \
   --url "https://<your-firewalla-domain>.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \
   --header "Authorization: Token $API_TOKEN" \
   --header "Content-Type: application/json" \

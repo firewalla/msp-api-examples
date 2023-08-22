@@ -11,14 +11,14 @@ banned_ips=$(curl --request GET \
   | jq -r '.[] | .ip')
 
 json_payload='{
-  "name": "A Simple Target List with crowdsec",
+  "name": "Target List with crowdsec",
   "notes":"This is a Simple Target List with crowdsec",
   "targets": ['
 json_payload+=$(echo "$banned_ips" | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/","/g')
 json_payload+=']
 }'
 
-http_code=$(curl -s -w %{http_code} --request POST \
+http_code=$(curl -s -w %{http_code} -o /dev/null --request POST \
   --url "https://<your-firewalla-domain>.firewalla.net/v2/target-lists" \
   --header "Authorization: Token $API_TOKEN" \
   --header "Content-Type: application/json" \
