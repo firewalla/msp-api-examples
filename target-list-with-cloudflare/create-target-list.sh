@@ -10,8 +10,8 @@ ip_addresses=$(grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' $FILE_PATH |
 
 # Construct the JSON payload
 json_payload='{
-  "name": "A Simple Target List with cloudflare",
-  "notes":"This is a Simple Target List with cloudflare",
+  "name": "A Simple Target List with CloudFlare",
+  "notes":"This is a Simple Target List with CloudFlare",
   "targets": ['
 
 # Loop through each IP address and add it to the JSON payload
