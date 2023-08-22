@@ -1,5 +1,6 @@
 #!/bin/bash
 
+MSP_DOMAIN="<Your Firewalla Domain>"
 API_TOKEN="<My API Token>"
 FILE_PATH="<CF Real IP Conf Path>"  # /path/to/cf_real-ip.conf 
 
@@ -18,7 +19,7 @@ json_payload="{
 
 # Make the API call
 http_code=$(curl -s -w %{http_code} -o /dev/null --request POST \
---url "https://<Firewalla Domain>.firewalla.net/v2/target-lists" \
+--url "https://$MSP_DOMAIN.firewalla.net/v2/target-lists" \
 --header "Authorization: Token $API_TOKEN" \
 --header "Content-Type: application/json" \
 --data "$json_payload")

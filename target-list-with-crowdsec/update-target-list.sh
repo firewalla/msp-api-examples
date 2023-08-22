@@ -3,6 +3,7 @@
 CROWDSEC_API_URL="http://<CrowdSec IP>:8080/v1/alerts"
 CROWDSEC_API_TOKEN="Your-CrowdSec-Token"
 
+MSP_DOMAIN="<Your Firewalla Domain>"
 TARGET_LIST_ID="<Target List ID>" # TL-00000000-0000-0000-0000-000000000000
 API_TOKEN="<My API Token>"
 
@@ -18,7 +19,7 @@ json_payload+=']
 }'
 
 http_code=$(curl -s -w %{http_code} -o /dev/null --request PATCH \
-  --url "https://<your-firewalla-domain>.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \
+  --url "https://$MSP_DOMAIN.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \
   --header "Authorization: Token $API_TOKEN" \
   --header "Content-Type: application/json" \
   --data "$json_payload")

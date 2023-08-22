@@ -1,5 +1,6 @@
 #!/bin/bash
 
+MSP_DOMAIN="<Your Firewalla Domain>"
 API_TOKEN="<My API Token>"
 TARGET_LIST_ID="<Target List ID>"   # TL-00000000-0000-0000-0000-000000000000
 FILE_PATH="<CF Real IP Conf Path>"  # /path/to/cf_real-ip.conf 
@@ -40,7 +41,7 @@ if ip_list_has_changed "$ip_addresses" "$previous_ip_list"; then
 
   # Make the API call
   http_code=$(curl -s -w %{http_code} -o /dev/null --request PATCH \
-  --url "https://<Firewalla Domain>.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \
+  --url "https://$MSP_DOMAIN.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \
   --header "Authorization: Token $API_TOKEN" \
   --header "Content-Type: application/json" \
   --data "$json_payload")
