@@ -17,8 +17,14 @@ json_payload+=$(echo "$banned_ips" | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/","/g
 json_payload+=']
 }'
 
-curl --request PATCH \
+http_code=$(curl -s -w %{http_code} --request PATCH \
   --url "https://<your-firewalla-domain>.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \
   --header "Authorization: Token $API_TOKEN" \
   --header "Content-Type: application/json" \
-  --data "$json_payload"
+  --data "$json_payload")
+
+if [[ "$http_code" == '200' ]]; then
+    echo "Create target list successfully"
+else
+    echo "Create target list failed"
+fi

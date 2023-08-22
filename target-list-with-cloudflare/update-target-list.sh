@@ -32,33 +32,24 @@ fi
 if ip_list_has_changed "$ip_addresses" "$previous_ip_list"; then
   echo "$ip_addresses" > previous_ip_list.txt
 
+  targets=$(echo -n "$ip_addresses"| jq -cRs 'split(" ")')
   # Construct the JSON payload
-  json_payload='{
-    "targets": ['
-
-  # Loop through each IP address and add it to the JSON payload
-  first_ip=true
-  for ip in $ip_addresses; do
-    if [ "$first_ip" = true ]; then
-      json_payload+='
-      "'"$ip"'"'
-      first_ip=false
-    else
-      json_payload+=',
-      "'"$ip"'"'
-    fi
-  done
-
-  json_payload+='
-    ]
-  }'
+  json_payload="{
+    \"targets\": $targets
+  }"
 
   # Make the API call
-  curl --request PATCH \
+  http_code=$(curl -s -w %{http_code} --request PATCH \
   --url "https://<Firewalla Domain>.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \
   --header "Authorization: Token $API_TOKEN" \
   --header "Content-Type: application/json" \
-  --data "$json_payload"
+  --data "$json_payload")
+
+  if [[ "$http_code" == '200' ]]; then
+    echo "Update target list successfully"
+  else
+    echo "Update target list failed"
+  fi
 else
   echo "IP list has not changed. No API call needed."
 fi
