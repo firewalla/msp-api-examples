@@ -4,11 +4,8 @@ This repository contains code examples that demonstrate how to use [Firewalla MS
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/package/npm), [pnpm](https://pnpm.io/installation), or the package manager you prefer
 - A Firewalla MSP account and a valid [plan](https://firewalla.net/plans)
 - Access token from your MSP account, check the [document](https://docs.firewalla.net/quick_start/) for details
-- [jq](https://jqlang.github.io/jq/tutorial/), a command-line JSON processing tool
 
 ## Quick Start
 
@@ -16,6 +13,7 @@ You could use either file or environment variable to setup your MSP domain and c
 
 ```bash
 git clone https://github.com/firewalla/msp-api-examples.git
+cd msp-api-examples/flow-pagination
 npm install
 domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index.js
 
@@ -38,5 +36,3 @@ As Firewalla MSP API operates directly on your data without prompt. Be very care
 Pull requests are welcome. Lastest development happens on `main` branch
 
 You might also want to check our user community on [firewalla.com](https://help.firewalla.com/hc/en-us/community/topics) and [reddit](https://www.reddit.com/r/firewalla/)
-
-Contributors: [@CozMedic](https://github.com/CozMedic)
