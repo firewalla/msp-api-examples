@@ -10,13 +10,13 @@ API_TOKEN="<My API Token>"
 banned_ips=$(curl --request GET \
   --url "$CROWDSEC_API_URL" \
   --header "Authorization: Bearer $CROWDSEC_API_TOKEN" \
-  | jq -r '.[] | .ip')
+  | jq -r '.[] | .decisions[] | .value//empty')
 
-json_payload='{
-  "targets": ['
-json_payload+=$(echo "$banned_ips" | sed -e ':a' -e 'N' -e '$!ba' -e 's/\n/","/g')
-json_payload+=']
-}'
+targets=$(echo -n $banned_ips | jq -cRs 'split(" ")' | jq .[:2000]) # max 2000 targets
+
+json_payload="{
+  \"targets\": $targets
+}"
 
 http_code=$(curl -s -w %{http_code} -o /dev/null --request PATCH \
   --url "https://$MSP_DOMAIN.firewalla.net/v2/target-lists/$TARGET_LIST_ID" \

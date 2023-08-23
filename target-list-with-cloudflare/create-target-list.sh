@@ -8,7 +8,7 @@ FILE_PATH="<CF Real IP Conf Path>"  # /path/to/cf_real-ip.conf
 ip_addresses=$(grep -Eo '([0-9]{1,3}\.){3}[0-9]{1,3}(/[0-9]{1,2})?' $FILE_PATH | \
   grep -Ev '^172\.18\.')
 
-targets=$(echo -n $ip_addresses | jq -cRs 'split(" ")')
+targets=$(echo -n $ip_addresses | jq -cRs 'split(" ")' | jq .[:2000]) # max 2000 targets
 
 # Construct the JSON payload
 json_payload="{

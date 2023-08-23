@@ -9,6 +9,7 @@ This repository contains code examples that demonstrate how to use [Firewalla MS
 - A Firewalla MSP account and a valid [plan](https://firewalla.net/plans)
 - Access token from your MSP account, check the [document](https://docs.firewalla.net/quick_start/) for details
 - [jq](https://jqlang.github.io/jq/tutorial/), a command-line JSON processing tool
+- [CrowdSec](https://github.com/crowdsecurity/crowdsec), v1.5.2.
 
 ## Quick Start
 
@@ -16,6 +17,7 @@ You could use either file or environment variable to setup your MSP domain and c
 
 ```bash
 git clone https://github.com/firewalla/msp-api-examples.git
+cd msp-api-examples
 npm install
 domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index.js
 
