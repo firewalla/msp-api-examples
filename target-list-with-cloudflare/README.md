@@ -7,3 +7,6 @@ Contributor: [@CozMedic](https://github.com/CozMedic)
 
 ### Dependencies
 - [jq](https://jqlang.github.io/jq/tutorial/)
+
+
+Contributors: [@CozMedic](https://github.com/CozMedic)

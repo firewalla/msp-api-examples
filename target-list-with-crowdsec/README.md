@@ -6,3 +6,7 @@ Contributor: [@CozMedic](https://github.com/CozMedic)
 
 ### Dependencies
 - [jq](https://jqlang.github.io/jq/tutorial/)
+- [CrowdSec](https://github.com/crowdsecurity/crowdsec), v1.5.2.
+
+
+Contributors: [@CozMedic](https://github.com/CozMedic)
