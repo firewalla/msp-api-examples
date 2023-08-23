@@ -33,7 +33,7 @@ fi
 if ip_list_has_changed "$ip_addresses" "$previous_ip_list"; then
   echo "$ip_addresses" > previous_ip_list.txt
 
-  targets=$(echo -n $ip_addresses | jq -cRs 'split(" ")' | jq .[:2000]) # max 2000 targets
+  targets=$(echo -n $ip_addresses | jq -cRs 'split(" ")[:2000]') # max 2000 targets
   # Construct the JSON payload
   json_payload="{
     \"targets\": $targets

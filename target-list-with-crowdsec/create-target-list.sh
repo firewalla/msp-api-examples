@@ -9,9 +9,9 @@ API_TOKEN="<My API Token>"
 banned_ips=$(curl --request GET \
   --url "$CROWDSEC_API_URL" \
   --header "Authorization: Bearer $CROWDSEC_API_TOKEN" \
-  | jq -r '.[] | .decisions[] | .value//empty')
+  | jq -r '.[].decisions[].value//empty')
 
-targets=$(echo -n $banned_ips | jq -cRs 'split(" ")' | jq .[:2000]) # max 2000 targets
+targets=$(echo -n $banned_ips | jq -cRs 'split(" ")[:2000]') # max 2000 targets
 
 json_payload="{
   \"name\": \"Target List with crowdsec\",
