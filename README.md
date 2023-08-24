@@ -9,23 +9,30 @@ This repository contains code examples that demonstrate how to use [Firewalla MS
 
 ## Quick Start
 
+
+### Node Examples
 You could use either file or environment variable to setup your MSP domain and credential, check each example for details
 
 ```bash
 git clone https://github.com/firewalla/msp-api-examples.git
-cd msp-api-examples/flow-pagination
+cd msp-api-examples/node-examples
 npm install
-domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index.js
+domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flows/flow-pagination.js
 
 ```
 
+### Shell Examples
+Similar as Node Examples, install required tools and modify the configurations, then run the examples.
+
 ## Samples
 
-| Sample | Firewalla MSP API Document |
-| ------ | ----- | 
-| [Flow Pagination](https://github.com/firewalla/msp-api-examples/tree/main/flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | 
-| [Target list with CloudFlare](https://github.com/firewalla/msp-api-examples/tree/main/target-list-with-cloudflare/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | 
-| [Target list with CrowdSec](https://github.com/firewalla/msp-api-examples/tree/main/target-list-with-crowdsec/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | 
+| Sample | Firewalla MSP API Document | Contributors|
+| ------ | ----- | ----- | 
+| [Flow Pagination](./node-examples/README.md#get-pagination-flows) | [Flow](https://docs.firewalla.net/api-reference/flow/) |  |
+| [Target list with CloudFlare](./shell-examples/README.md#target-list-with-cloudflare) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
+| [Target list with CrowdSec](./shell-examples/README.md#target-list-with-crowdsec) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
+| [Get Security alarms and send to Discord](./node-examples/README.md#get-security-alarms) | [Alarm](https://docs.firewalla.net/api-reference/alarm/) |  |
+| [Get Box Devices](./node-examples/README.md#get-box-devices) | [Device](https://docs.firewalla.net/api-reference/device/) |  |
 
 ## Disclaimer
 

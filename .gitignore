@@ -5,4 +5,10 @@
 npm-debug.log
 Thumbs.db
 node_modules/
+node-examples/package-lock.json
+node-examples/.token
+node-examples/.domain
+node-examples/.webhook
+node-examples/node_modules/
 .vs/
+node-examples/package-lock.json
