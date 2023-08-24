@@ -60,18 +60,25 @@ async function main() {
     if (alarms.length > 0) {
         // send the alarms to discord channel
         const webHookClient = axios.create({ baseURL: discordWebhook });
+        let count = 0;
         for (const alarm of alarms) {
-            await webHookClient({
-                method: 'POST',
-                data: {
-                    "embeds": [{
-                        title: "Security Alarm",
-                        description: alarm.message,
-                        url: `https://${msp_domain}/alarms?gid=${alarm.gid}&aid=${alarm.aid}`
-                    }]
-                }
-            })
+            try {
+                await webHookClient({
+                    method: 'POST',
+                    data: {
+                        "embeds": [{
+                            title: "Security Alarm",
+                            description: alarm.message,
+                            url: `https://${msp_domain}/alarms?gid=${alarm.gid}&aid=${alarm.aid}`
+                        }]
+                    }
+                })
+                count++;
+            } catch (e) {
+                console.error(e);
+            }
         }
+        console.log(`${count} security alarms sent to Discord`)
     }
 }
 
