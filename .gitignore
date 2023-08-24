@@ -1,8 +1,11 @@
 .token
 .domain
+.webhook
 
 .DS_Store
 npm-debug.log
 Thumbs.db
 node_modules/
+*/node_modules/
+*/package-lock.json
 .vs/
