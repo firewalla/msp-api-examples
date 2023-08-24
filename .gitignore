@@ -1,6 +1,6 @@
 .token
 .domain
-.webhook
+.discordWebhook
 
 .DS_Store
 npm-debug.log

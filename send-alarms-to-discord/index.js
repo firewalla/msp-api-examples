@@ -19,7 +19,9 @@ import fs from 'fs';
 // Create .token and .domain file or use environment variables to setup your MSP domain and credential
 const msp_domain = process.env.domain || fs.readFileSync('./.domain').toString();
 const token = process.env.token || fs.readFileSync('./.token').toString();
-const webhook = process.env.webhook || fs.readFileSync('./.webhook').toString();
+
+// How to get discord webhook https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
+const discordWebhook = process.env.discordWebhook || fs.readFileSync('./.discordWebhook').toString();
 const begin = process.env.begin || Date.now() / 1000 - 24 * 3600;
 let end = process.env.end || Date.now() / 1000;
 
@@ -57,7 +59,7 @@ async function main() {
 
     if (alarms.length > 0) {
         // send the alarms to discord channel
-        const webHookClient = axios.create({ baseURL: webhook });
+        const webHookClient = axios.create({ baseURL: discordWebhook });
         for (const alarm of alarms) {
             await webHookClient({
                 method: 'POST',
