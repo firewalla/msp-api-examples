@@ -5,7 +5,7 @@ Managed to lock down access to your NGINX reverse proxy to CloudFlare's IPs by d
 
 ### Quick Start
 
-You may need to replace the `MSP_DOMAIN`,`API_TOKEN`,`FILE_PATH`,`TARGET_LIST_ID` values in the scripts with real value, then run the scripts.
+You need to replace the `MSP_DOMAIN`,`API_TOKEN`,`FILE_PATH`,`TARGET_LIST_ID` values in the scripts with real value, then run the scripts.
 
 ### Dependencies
 - [jq](https://jqlang.github.io/jq/tutorial/)
