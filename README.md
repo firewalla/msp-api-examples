@@ -19,9 +19,9 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 
 ```
 
-## Samples
+## Examples
 
-| Sample | Firewalla MSP API Document | Contributors|
+| Example | Firewalla MSP API Document | Contributors|
 | ------ | ----- | ----- | 
 | [Flow Pagination](./flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | |
 | [Send alarms to Discord](./send-alarms-to-discord/README.md) | [Alarm](https://docs.firewalla.net/api-reference/alarm/) | |
