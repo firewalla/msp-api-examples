@@ -1,0 +1,14 @@
+{
+  "name": "msp-api-examples",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Examples of using Firewalla MSP API",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/firewalla/msp-api-examples"
+  },
+  "author": "Firewalla Inc.",
+  "dependencies": {
+    "axios": "^1.4.0"
+  }
+}
