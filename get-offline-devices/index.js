@@ -35,9 +35,14 @@ async function main() {
         method: 'get',
         url: `/devices`,
     }).then(r => r.data);
+
     devices = devices.filter(r => !r.online).map(r => {
-        return { name: r.name, lastSeen: r.lastSeen ? new Date(r.lastSeen * 1000).toLocaleString() : '-' }
-    })
+        return {
+            name: r.name,
+            lastSeen: r.lastSeen ? new Date(r.lastSeen * 1000) : 0
+        }
+    }).sort((a, b) => a.lastSeen > b.lastSeen ? -1 : 1)
+
     console.table(devices, ['name', 'lastSeen']);
 }
 
