@@ -20,7 +20,7 @@ json_payload="{
 }"
 
 http_code=$(curl -s -w %{http_code} -o /dev/null --request POST \
-  --url "https://$MSP_DOMAIN.firewalla.net/v2/target-lists" \
+  --url "https://$MSP_DOMAIN/v2/target-lists" \
   --header "Authorization: Token $API_TOKEN" \
   --header "Content-Type: application/json" \
   --data "$json_payload")

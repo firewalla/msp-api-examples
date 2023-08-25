@@ -21,11 +21,13 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 
 ## Samples
 
-| Sample | Firewalla MSP API Document |
-| ------ | ----- | 
-| [Flow Pagination](https://github.com/firewalla/msp-api-examples/tree/main/flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | 
-| [Target list with CloudFlare](https://github.com/firewalla/msp-api-examples/tree/main/target-list-with-cloudflare/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | 
-| [Target list with CrowdSec](https://github.com/firewalla/msp-api-examples/tree/main/target-list-with-crowdsec/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | 
+| Sample | Firewalla MSP API Document | Contributors|
+| ------ | ----- | ----- | 
+| [Flow Pagination](./flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | |
+| [Send alarms to Discord](./send-alarms-to-discord/README.md) | [Alarm](https://docs.firewalla.net/api-reference/alarm/) | |
+| [Get Topk Bandwidth Usage Devices](./get-topk-bandwidth-usage-devices/README.md) | [Device](https://docs.firewalla.net/api-reference/device/) | |
+| [Target list with CloudFlare](./target-list-with-cloudflare/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
+| [Target list with CrowdSec](./target-list-with-crowdsec/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
 
 ## Disclaimer
 

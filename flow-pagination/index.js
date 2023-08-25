@@ -44,6 +44,7 @@ async function main() {
       method: 'get',
       url: `/flows`,
       params: {
+        block: 0,
         begin,
         end,
         limit: 500,
@@ -59,7 +60,7 @@ async function main() {
       }
       bucket[flow.device.id].flows.push(flow)
     }
-  } while(end)
+  } while (end)
 
   // only prints the flow count here
   for (const deviceId in bucket) {
