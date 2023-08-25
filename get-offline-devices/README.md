@@ -1,4 +1,4 @@
-### Story
+### Example
 
 Get all of offline devices on your msp.
 
