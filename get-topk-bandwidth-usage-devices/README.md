@@ -1,6 +1,6 @@
 ### Example
-Get topk bandwidth usage devices within a custom period on your msp. If the bandwidth usage is reach the limit you config,
-can send a message to Discord also, do the same thing as [Send alarms to Discord](../send-alarms-to-discord/README.md).
+Get top bandwidth usage devices within a custom period on your MSP. If the bandwidth usage reaches the configured limit,
+it will be able to send a message to Discord. It functions the same as [Send alarms to Discord](../send-alarms-to-discord/README.md).
 
 ***Reminder: It is only supported on MSP 2.1.0 or later.***
 
