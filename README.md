@@ -1,6 +1,6 @@
 # Firewalla Managed Security Portal (MSP) API Examples
 
-This repository contains code examples that demonstrate how to use [Firewalla MSP API](https://docs.firewalla.net/) to interact with [Firewalla MSP](https://firewalla.net/). You can read, play with or adapt from these examples to create your own appliance.
+This repository contains code examples that demonstrate how to use [Firewalla MSP API](https://docs.firewalla.net/) to interact with [Firewalla MSP](https://firewalla.net/). You can read, play with, or adapt from these examples to create your own applications.
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ This repository contains code examples that demonstrate how to use [Firewalla MS
 
 ## Quick Start
 
-You could use either file or environment variable to setup your MSP domain and credential, check each example for details
+You can use either file or environment variable to setup your MSP domain and credential, check each example for details
 
 ```bash
 git clone https://github.com/firewalla/msp-api-examples.git
@@ -32,10 +32,10 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 
 ## Disclaimer
 
-As Firewalla MSP API operates directly on your data without prompt. Be very careful writing your own appliance. Dry runs are recommended before any write request.
+As Firewalla MSP API will operate directly on your data, please be careful about what you are writing.
 
 # Contributing
 
-Pull requests are welcome. Lastest development happens on `main` branch
+Pull requests are welcome. The latest development happens on `main` branch
 
 You might also want to check our user community on [firewalla.com](https://help.firewalla.com/hc/en-us/community/topics) and [reddit](https://www.reddit.com/r/firewalla/)
