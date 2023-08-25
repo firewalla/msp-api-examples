@@ -1,4 +1,4 @@
-### Story
+### Example
 Get topk bandwidth usage devices within a custom period on your msp. If the bandwidth usage is reach the limit you config,
 can send a message to Discord also, do the same thing as [Send alarms to Discord](../send-alarms-to-discord/README.md).
 
