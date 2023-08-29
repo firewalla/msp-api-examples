@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 // Change these three configurations to what you need
-const msp_domain = process.env.msp_domain || "kaleb.firewalla.net";
-const token = process.env.token || "35960c24c3967b6092c0726d348c8766";
+const msp_domain = process.env.msp_domain || "my_mnsp.firewalla.net";
+const token = process.env.token || "my_token";
 const block = process.env.block || "1";
 const limit = process.env.limit || "10";
 const begin = process.env.begin || Date.now() / 1000 - 24 * 3600
