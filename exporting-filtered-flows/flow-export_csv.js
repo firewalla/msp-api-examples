@@ -6,7 +6,7 @@ const axios = require('axios');
 const msp_domain = process.env.msp_domain || "my_msp.firewalla.net";
 
 // replace with your MSP token
-const token = process.env.token || "your_token";
+const token = process.env.token || "my_token";
 
 // block: 1 means blocked flows 0 = unblocked flows
 const block = process.env.block || "0";
