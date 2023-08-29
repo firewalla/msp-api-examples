@@ -9,7 +9,7 @@ This repository contains code examples that demonstrate how to use [Firewalla MS
 
 ## Quick Start
 
-You can use either file or environment variable to setup your MSP domain and credential, check each example for details
+You can use either file or environment variable to setup your MSP domain and credential, check each example for details:
 
 ```bash
 git clone https://github.com/firewalla/msp-api-examples.git
@@ -29,6 +29,9 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 | [Get Topk Bandwidth Usage Devices Within A Custom Period](./get-topk-bandwidth-usage-devices/README.md) | TBD | |
 | [Target list with CloudFlare](./target-list-with-cloudflare/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
 | [Target list with CrowdSec](./target-list-with-crowdsec/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
+| [Export Filtered Flows](./export-Filtered-flows/README.md) |[Flow](https://docs.firewalla.net/api-reference/flow/) | [@mbierman](https://github.com/mbierman) |
+
+
 
 ## Disclaimer
 
