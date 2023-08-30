@@ -1,5 +1,5 @@
-### Story
-TBD
+### Example
+Get flows count per device within a custom period on your MSP.
 
 
 ### Quick Start

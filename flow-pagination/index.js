@@ -29,7 +29,7 @@ import fs from 'fs';
 const msp_domain = process.env.domain || fs.readFileSync('./.domain').toString();
 const token = process.env.token || fs.readFileSync('./.token').toString();
 // begin and end default to the latest hour
-const begin = process.env.begin || Date.now() / 1000 - 24 * 3600;
+const begin = process.env.begin || Date.now() / 1000 - 1 * 3600;
 let end = process.env.end || Date.now() / 1000;
 
 
@@ -65,17 +65,17 @@ async function main() {
     for (const flow of resp.results) {
       if (!bucket[flow.device.id]) {
         bucket[flow.device.id] = Object.assign({}, flow.device)
-        bucket[flow.device.id].flows = []
+        bucket[flow.device.id].count = flow.count || 1;
       }
-      bucket[flow.device.id].flows.push(flow)
+      bucket[flow.device.id].count += flow.count;
     }
   } while (end)
 
-  // only prints the flow count here
-  for (const deviceId in bucket) {
-    const device = bucket[deviceId]
-    console.log(`${device.name}: ${device.flows.length} flows fetched`)
-  }
+  const results = Object.keys(bucket)
+    .map(key => { return { name: bucket[key].name, count: bucket[key].count } })
+    .sort((a, b) => b.count - a.count);
+
+  console.table(results, ['name', 'count']);
 }
 
 
