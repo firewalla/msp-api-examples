@@ -10,7 +10,7 @@ it will be able to send a message to Discord. It functions the same as [Send ala
 Assume you've already cloned `https://github.com/firewalla/msp-api-examples.git` and `cd msp-api-examples`
 
 ```bash
-cd get-topk-bandwidth-usage-devices
+cd get-top-bandwidth-usage-devices
 npm install
 domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./index.js
 
