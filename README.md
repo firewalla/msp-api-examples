@@ -26,7 +26,7 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 | [Flow Pagination](./flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | |
 | [Send alarms to Discord](./send-alarms-to-discord/README.md) | [Alarm](https://docs.firewalla.net/api-reference/alarm/) | |
 | [Get Offline Devices](./get-offline-devices/README.md) | [Device](https://docs.firewalla.net/api-reference/device/) | |
-| [Get Top Bandwidth Usage Devices](./get-topk-bandwidth-usage-devices/README.md) | TBD | |
+| [Get Top Bandwidth Usage Devices](./get-top-bandwidth-usage-devices/README.md) | TBD | |
 | [Target list with CloudFlare](./target-list-with-cloudflare/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
 | [Target list with CrowdSec](./target-list-with-crowdsec/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
 
