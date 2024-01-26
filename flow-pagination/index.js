@@ -45,7 +45,7 @@ async function main() {
   httpClient.defaults.headers.common['Content-Type'] = 'application/json'
 
   const params = {
-    query: `ts:${begin}-${end}`,
+    query: `ts:${begin}-${end}`, // it will query last 24 hours flows by default if time-period doesn't set
     cursor: null,
     limit: 100 // defaults to 200 if it is unset
   }
