@@ -32,7 +32,7 @@ const box = process.env.box;
 
 
 // Related API Document
-// https://docs.firewalla.net/api-reference/device/
+// https://docs.firewalla.net/api-reference/alarm/ FYI: doc is out of date now, will update in recent
 async function main() {
 
     const httpClient = axios.create({

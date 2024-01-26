@@ -28,13 +28,12 @@ import fs from 'fs';
 // Create .token and .domain file or use environment variables to setup your MSP domain and credential
 const msp_domain = process.env.domain || fs.readFileSync('./.domain').toString();
 const token = process.env.token || fs.readFileSync('./.token').toString();
-// begin and end default to the latest hour
-const begin = process.env.begin || Date.now() / 1000 - 1 * 3600;
+const begin = process.env.begin || Date.now() / 1000 - 10 * 60;
 let end = process.env.end || Date.now() / 1000;
 
 
 // Related API Document
-// https://docs.firewalla.net/api-reference/flow/
+// https://docs.firewalla.net/api-reference/flow/ FYI: doc is out of date now, will update in recent
 
 
 async function main() {
@@ -45,37 +44,25 @@ async function main() {
   httpClient.defaults.headers.common['Authorization'] = 'Token ' + token;
   httpClient.defaults.headers.common['Content-Type'] = 'application/json'
 
-  const bucket = {}
+  const params = {
+    query: `ts:${begin}-${end}`,
+    cursor: null,
+    limit: 100 // defaults to 200 if it is unset
+  }
 
-  // pagination, keep fetching until next returned as null
-  do {
-    const resp = await httpClient({
+  const flows = [];
+  while (1) {
+    const { results, next_cursor } = await httpClient({
       method: 'get',
       url: `/flows`,
-      params: {
-        block: 0,
-        begin,
-        end,
-        limit: 500,
-      },
-    }).then(r => r.data)
-
-    end = resp.next
-
-    for (const flow of resp.results) {
-      if (!bucket[flow.device.id]) {
-        bucket[flow.device.id] = Object.assign({}, flow.device)
-        bucket[flow.device.id].count = flow.count || 1;
-      }
-      bucket[flow.device.id].count += flow.count;
-    }
-  } while (end)
-
-  const results = Object.keys(bucket)
-    .map(key => { return { name: bucket[key].name, count: bucket[key].count } })
-    .sort((a, b) => b.count - a.count);
-
-  console.table(results, ['name', 'count']);
+      params: params
+    }).then(r => r.data);
+    flows.push(...results);
+    if (!next_cursor) break;
+    console.log(next_cursor)
+    params.cursor = next_cursor;
+  }
+  console.log('count: %d', flows.length)
 }
 
 
