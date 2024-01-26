@@ -28,45 +28,40 @@ import fs from 'fs';
 // Create .token and .domain file or use environment variables to setup your MSP domain and credential
 const msp_domain = process.env.domain || fs.readFileSync('./.domain').toString();
 const token = process.env.token || fs.readFileSync('./.token').toString();
-const begin = process.env.begin || Date.now() / 1000 - 10 * 60;
-let end = process.env.end || Date.now() / 1000;
+const box = process.env.box;
 
 
 // Related API Document
-// https://docs.firewalla.net/api-reference/flow/ FYI: doc is out of date now, will update in recent
-
-
+// https://docs.firewalla.net/api-reference/alarm/ FYI: doc is out of date now, will update in recent
 async function main() {
 
-  const httpClient = axios.create({
-    baseURL: `https://${msp_domain}/v2`,
-  })
-  httpClient.defaults.headers.common['Authorization'] = 'Token ' + token;
-  httpClient.defaults.headers.common['Content-Type'] = 'application/json'
+    const httpClient = axios.create({
+        baseURL: `https://${msp_domain}/v2`,
+    })
+    httpClient.defaults.headers.common['Authorization'] = 'Token ' + token;
+    httpClient.defaults.headers.common['Content-Type'] = 'application/json'
 
-  const params = {
-    query: `ts:${begin}-${end}`, // it will query last 24 hours flows by default if time-period doesn't set
-    cursor: null,
-    limit: 100 // defaults to 200 if it is unset
-  }
-
-  const flows = [];
-  while (1) {
-    const { results, next_cursor } = await httpClient({
-      method: 'get',
-      url: `/flows`,
-      params: params
-    }).then(r => r.data);
-    flows.push(...results);
-    if (!next_cursor) break;
-    console.log(next_cursor)
-    params.cursor = next_cursor;
-  }
-  console.log('count: %d', flows.length)
+    const params = {
+        query: `status:active box:${box}`,
+        cursor: null,
+        limit: 10
+    }
+    const alarms = [];
+    while (1) {
+        const { results, next_cursor } = await httpClient({
+            method: 'get',
+            url: `/alarms`,
+            params: params
+        }).then(r => r.data);
+        alarms.push(...results);
+        if (!next_cursor) break;
+        params.cursor = next_cursor;
+    }
+    console.table(alarms, ['message']);
 }
 
 
 main().catch(err => {
-  console.error('Failed to get flows', err);
-  process.exit(1)
+    console.error('Failed to get alarms', err);
+    process.exit(1)
 })
