@@ -24,6 +24,7 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 | Example | Firewalla MSP API Document | Contributors|
 | ------ | ----- | ----- | 
 | [Flow Pagination](./flow-pagination/index.js) | [Flow](https://docs.firewalla.net/api-reference/flow/) | |
+| [Get Active Alarms By Specific Box](./get-active-alarms-by-specific-box/index.js) | [Alarm](https://docs.firewalla.net/api-reference/alarm/) | |
 | [Send alarms to Discord](./send-alarms-to-discord/README.md) | [Alarm](https://docs.firewalla.net/api-reference/alarm/) | |
 | [Get Offline Devices](./get-offline-devices/README.md) | [Device](https://docs.firewalla.net/api-reference/device/) | |
 | [Get Top Bandwidth Usage Devices](./get-top-bandwidth-usage-devices/README.md) | TBD | |
