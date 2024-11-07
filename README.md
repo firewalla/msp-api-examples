@@ -30,6 +30,7 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 | [Get Top Bandwidth Usage Devices](./get-top-bandwidth-usage-devices/README.md) | TBD | |
 | [Target list with CloudFlare](./target-list-with-cloudflare/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
 | [Target list with CrowdSec](./target-list-with-crowdsec/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
+| [Get Rules With Conditions](./get-rules-with-conditions/README.md) _2.7.0 or later_ | [Rule](https://docs.firewalla.net/api-reference/rule/#get-rules) | |
 | [Pause An Existing Rule](./pause-an-existing-rule/README.md) | [Rule](https://docs.firewalla.net/api-reference/rule/#pause-a-rule) | |
 
 ## Disclaimer
