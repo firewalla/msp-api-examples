@@ -9,7 +9,7 @@ Assume you've already cloned `https://github.com/firewalla/msp-api-examples.git`
 ```bash
 cd get-active-alarms-by-specific-box
 npm install
-domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./index.js
+domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" box="<YOUR-BOX-ID>" node ./index.js
 
 ```
 
