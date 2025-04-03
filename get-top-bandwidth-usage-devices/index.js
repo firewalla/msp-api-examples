@@ -29,7 +29,7 @@ import fs from 'fs';
 const msp_domain = process.env.domain || fs.readFileSync('./.domain').toString();
 const token = process.env.token || fs.readFileSync('./.token').toString();
 
-const begin = process.env.begin || Date.now() / 1000 - 30 * 24 * 3600; // last 30 days
+const begin = process.env.begin || Date.now() / 1000 - 24 * 3600; // last 24 hours
 let end = process.env.end || Date.now() / 1000;
 
 
@@ -40,26 +40,23 @@ let end = process.env.end || Date.now() / 1000;
 async function main() {
 
     const httpClient = axios.create({
-        // aggr function is only supported on v1 version, will add it to v2 and update the API Doc recently
-        baseURL: `https://${msp_domain}/v1`,
+        baseURL: `https://${msp_domain}/v2`,
     })
     httpClient.defaults.headers.common['Authorization'] = 'Token ' + token;
     httpClient.defaults.headers.common['Content-Type'] = 'application/json'
 
-    // pagination, keep fetching until next returned as null
     const resp = await httpClient({
-        method: 'post',
-        url: `/flows/query?format=v2`,
-        data: {
-            start: begin,
-            end,
-            limit: 50,
-            sortBy: [{ name: "total", order: "desc" }],
-            groupBy: ['device']
+        method: 'get',
+        url: `/flows`,
+        params: {
+            query: `ts:${begin}-${end}`,
+            limit: 5,
+            sortBy: "total:desc",
+            groupBy: "device"
         },
     }).then(r => r.data)
 
-    const results = resp.flows.map(f => { return { deviceName: f.device.name, total: f.total, download: f.download, upload: f.upload } });
+    const results = resp.results.map(f => { return { deviceName: f.device.name, total: f.total, download: f.download, upload: f.upload } });
     console.table(results, ["deviceName", "download", "upload", "total"])
 }
 
