@@ -1,6 +1,6 @@
 ### Example
 
-If you'd like to create a Target List of all the destination IP addresses of a certain type of Alarm, you can get all the destination IPs from the past x Alarms, create a new Target List, and update the Target List periodically with these alarms.
+If you'd like to create a Target List of all the destination IP addresses of a certain type of Alarm, you can get all the destination IPs from the past x Alarms, create a new Target List, and update the Target List periodically with these IPs.
 
 
 ### Quick Start
@@ -14,7 +14,7 @@ cd target-list-from-gaming-alarm-ips/create-target-list
 npm install
 node ./index.js
 ```
-**Create a new Target List from Gaming Alarms**
+**Update a new Target List from Gaming Alarms**
 Update your MSP domain, token, box, and target list IDs in the files.
 
 ```bash
