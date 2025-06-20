@@ -8,6 +8,7 @@ Assume you've already cloned `https://github.com/firewalla/msp-api-examples.git`
 
 **Create a new Target List from Gaming Alarms**
 Update your MSP domain, token, and box in the files.
+
 ```bash
 cd target-list-from-gaming-alarm-ips/create-target-list
 npm install
@@ -15,6 +16,7 @@ node ./index.js
 ```
 **Create a new Target List from Gaming Alarms**
 Update your MSP domain, token, box, and target list IDs in the files.
+
 ```bash
 cd target-list-from-gaming-alarm-ips/update-target-list
 npm install
