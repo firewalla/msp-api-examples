@@ -5,7 +5,7 @@ This repository contains code examples that demonstrate how to use [Firewalla MS
 ## Prerequisites
 
 - A Firewalla MSP account and a valid [plan](https://firewalla.net/plans)
-- Access token from your MSP account, check the [document](https://docs.firewalla.net/quick_start/) for details
+- Access token from your MSP account, check the [document](https://docs.firewalla.net/#create-your-personal-access-token) for details
 
 ## Quick Start
 
