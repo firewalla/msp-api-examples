@@ -16,12 +16,13 @@ async function main() {
     httpClient.defaults.headers.common['Content-Type'] = 'application/json'
 
     const params = {
-        query: `status:active box:${box} type:9`,
+        query: `status:active box:${box} type:9`, // get gaming activity alarms
         cursor: null,
         limit: 10
     }
     const alarms = [];
-    const remoteIPs = new Set();
+    const existingList = await httpClient.get(`https://${msp_domain}/v2/target-lists/${id}`).then(r => r.data);
+    const currentIPs = new Set(existingList.targets || []);
     while (1) {
         const { results, next_cursor } = await httpClient({
             method: 'get',
@@ -32,18 +33,16 @@ async function main() {
 
         results.forEach(r => {
             if (r.remote?.ip) {
-                remoteIPs.add(r.remote.ip);
+                currentIPs.add(r.remote.ip);
             }
         });
         if (!next_cursor) break;
         params.cursor = next_cursor;
     }
-    const targets = [...remoteIPs];
-    console.log(targets.join('\n'));
 
     const targetList = {
-        "name": "Gaming IP Addresses",
-        "targets": targets
+        "name": existingList.name,
+        "targets": [...currentIPs]
     }
     
     axios({
