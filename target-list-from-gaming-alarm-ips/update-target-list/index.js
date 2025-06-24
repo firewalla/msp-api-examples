@@ -22,7 +22,9 @@ async function main() {
     }
     const alarms = [];
     const existingList = await httpClient.get(`https://${msp_domain}/v2/target-lists/${id}`).then(r => r.data);
-    const currentIPs = new Set(existingList.targets || []);
+    const currentIPs = existingList.targets || [];
+    const newIPs = [];
+
     while (1) {
         const { results, next_cursor } = await httpClient({
             method: 'get',
@@ -33,16 +35,18 @@ async function main() {
 
         results.forEach(r => {
             if (r.remote?.ip) {
-                currentIPs.add(r.remote.ip);
+                newIPs.push(r.remote.ip);
             }
         });
         if (!next_cursor) break;
         params.cursor = next_cursor;
     }
 
+    const newList = Array.from(new Set([...newIPs, ...currentIPs])).slice(0,2000); // limit to 2000
+
     const targetList = {
         "name": existingList.name,
-        "targets": [...currentIPs]
+        "targets": newList
     }
     
     axios({
