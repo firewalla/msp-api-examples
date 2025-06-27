@@ -28,6 +28,7 @@ domain="<YOUR-MSP-DOMAIN>" token="<YOUR-MSP-TOKEN>" node ./flow-pagination/index
 | [Send alarms to Discord](./send-alarms-to-discord/README.md) | [Alarm](https://docs.firewalla.net/api-reference/alarm/) | |
 | [Get Offline Devices](./get-offline-devices/README.md) | [Device](https://docs.firewalla.net/api-reference/device/) | |
 | [Get Top Bandwidth Usage Devices](./get-top-bandwidth-usage-devices/README.md) | TBD | |
+| [Target List from Gaming Alarm IPs](./target-list-from-gaming-alarm-ips/README.md) | [Alarm](https://docs.firewalla.net/api-reference/alarm/), [Target List](https://docs.firewalla.net/api-reference/target-lists/) | |
 | [Target list with CloudFlare](./target-list-with-cloudflare/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
 | [Target list with CrowdSec](./target-list-with-crowdsec/README.md) | [Target List](https://docs.firewalla.net/api-reference/target-lists/) | [@CozMedic](https://github.com/CozMedic) |
 | [Get Rules With Conditions](./get-rules-with-conditions/README.md) _2.7.0 or later_ | [Rule](https://docs.firewalla.net/api-reference/rule/#get-rules) | |
